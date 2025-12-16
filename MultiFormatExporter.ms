@@ -3514,7 +3514,7 @@ struct MFE_DaeFileWriter
 			(
 				stride = 1
 			)
-			if accessor == "ST" then
+			else if accessor == "ST" then
 			(
 				stride = 2
 			)
@@ -4093,7 +4093,7 @@ struct MFE_DaeFileWriter
 	(
 		if beginElement "animation" names:#("id", "name") values:#(anim.animName + "-anim", anim.animName) then
 		(
-			for childObj in rootNode.children do
+			for childObj in rootNode.children where isRequiredNode childObj do
 			(
 				writeAnimationR childObj anim
 			)
