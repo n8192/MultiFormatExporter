@@ -39,8 +39,9 @@ MFE_Units_Feet = 2
 MFE_Units_Miles = 3
 MFE_Units_Millimeters = 4
 MFE_Units_Centimeters = 5
-MFE_Units_Meters = 6
-MFE_Units_Kilometers = 7
+MFE_Units_Decimeters = 6
+MFE_Units_Meters = 7
+MFE_Units_Kilometers = 8
 
 
 function MFE_unitsID type = 
@@ -3147,6 +3148,11 @@ struct MFE_DaeFileWriter
 					unit = "centimeter"
 					meter = 0.01
 				)
+				MFE_Units_Decimeters:
+				(
+					unit = "decimeter"
+					meter = 0.1
+				)
 				MFE_Units_Meters:
 				(
 					unit = "meter"
@@ -4297,7 +4303,7 @@ plugin Helper MFE_SceneFileHelper name:"SceneFile" classID:#(0x9fd46b4f, 0xc57e1
 		group "Export"
 		(
 			checkbox cbExportYUp "Y-Up" width:112 align:#center
-			dropdownlist ddlExportUnits "Scale to Units:" items:#("Inches", "Feet", "Miles", "Millimeters", "Centimeters", "Meters", "Kilometers") width:112 align:#center
+			dropdownlist ddlExportUnits "Scale to Units:" items:#("Inches", "Feet", "Miles", "Millimeters", "Centimeters", "Decimeters", "Meters", "Kilometers") width:112 align:#center
 			edittext etScaleText "" width:80 align:#center
 			button btExportAddAll "Add All" width:112 offset:[0,10]
 			button btExportAddSel "Select and Add" width:112
@@ -4639,6 +4645,7 @@ plugin Helper MFE_SceneFileHelper name:"SceneFile" classID:#(0x9fd46b4f, 0xc57e1
 				MFE_Units_Miles: fromMeters = 1609.344
 				MFE_Units_Millimeters: fromMeters = 0.001
 				MFE_Units_Centimeters: fromMeters = 0.01
+				MFE_Units_Decimeters: fromMeters = 0.1
 				MFE_Units_Meters: fromMeters = 1.0
 				MFE_Units_Kilometers: fromMeters = 1000.0
 			)
